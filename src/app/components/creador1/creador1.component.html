@@ -1,0 +1,57 @@
+<!--<p-toast [style]="{marginTop: '80px'}" modal="true"  position="top-center" ></p-toast>
+        <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>-->
+
+<div  *ngIf="modoLista==true" class="ui-g">
+            <!--<p-toolbar>
+                <div class="ui-toolbar-group-left">
+                    <button (click)="onVer()"
+                        pButton type="button"  label="Ver" icon="ui-icon-search" style="margin-right: 0.5em;"></button>
+                    <button (click)="onVerAdd()"
+                        pButton type="button"  label="Nuevo" icon="ui-icon-add" style="margin-right: 0.5em;"></button>
+                    <button (click)="onBorrarClick()" pButton type="button" label="Caducar" icon="ui-icon-delete" style="margin-right: 0.5em;"></button>
+                    <button type="button" pButton icon="ui-icon-refresh" iconPos="left" label="Actualizar" (click)="onActualizar()"
+                    style="margin-right: 0.5em;"></button>
+                    <button type="button" pButton icon="ui-icon-file-download" iconPos="left" label="CSV" (click)="dt.exportCSV()"
+                        style="margin-right: 0.5em;"></button>
+                </div>
+                <div class="ui-toolbar-group-right">
+                </div>
+            </p-toolbar>-->
+
+                <p-table #dt_unificados [columns]="colsCreador1s" [value]="oCreador1sList" selectionMode="single"
+                 [(selection)]="oCreador1Selected"  [paginator]="true" [rows]="10" [responsive]="true"
+                 scrollWidth="100%" (onRowSelect)="onRowSelectItem()">
+                        <ng-template pTemplate="caption">
+
+                                <div style="text-align: center">
+                                    Creador1s Lista
+                                    </div>
+                         </ng-template>
+                        <ng-template pTemplate="colgroup" let-columns>
+                            <colgroup>
+                                <col *ngFor="let col of columns" [style.width]="col.width">
+                            </colgroup>
+                        </ng-template>
+                         <ng-template pTemplate="header" let-columns>
+                             <tr>
+                                 <th *ngFor="let col of columns" [pSortableColumn]="col.field" [style.text-align]="col.align">
+                                   <b>  {{col.header}}</b>
+                                     <!-- <p-sortIcon [field]="col.field"></p-sortIcon> -->
+                                 </th>
+                             </tr>
+                         </ng-template>
+                         <ng-template pTemplate="body" let-rowData let-columns="columns">
+                             <tr [pSelectableRow]="rowData">
+                                 <td>{{rowData.id}}</td>
+                                <td>{{rowData.titulo}}</td>
+                                <td>{{rowData.jsontxt}}</td>
+
+                             </tr>
+                         </ng-template>
+                     </p-table>
+        <!-- </div> -->
+
+
+    </div>
+
+

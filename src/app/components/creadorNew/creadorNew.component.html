@@ -1,0 +1,39 @@
+<p-card>
+    <p-header>
+        Nuevo componente
+    </p-header>
+    Body Content
+    
+    <p-footer>
+        Footer content here
+    </p-footer>
+</p-card>
+
+<form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
+
+  <div>
+    <label for="name">
+      Titulo
+    </label>
+    <input id="titulo" placeholder="Required" type="text"  [(ngModel)]="nuevotitulo" formControlName="titulo"
+    [ngClass]="{ 'is-invalid': submitted && f.titulo.errors }">
+    
+  </div>
+   <div *ngIf="submitted && f.titulo.errors" class="invalid-feedback">
+                        <div *ngIf="f.titulo.errors.required">titulo is required</div>
+                    </div>
+
+  <div>
+    <label for="address">
+      Jsontxt
+    </label>
+    <input id="jsontxt" placeholder="Required" type="text" [(ngModel)]="nuevojsontxt" formControlName="jsontxt"
+    [ngClass]="{ 'is-invalid': submitted && f.jsontxt.errors }">
+  </div>
+   <div *ngIf="submitted && f.jsontxt.errors" class="invalid-feedback">
+                        <div *ngIf="f.jsontxt.errors.required">jsontxt is required</div>
+                    </div>
+  <button class="button" type="submit">Purchase</button>
+
+</form>
+
